@@ -23,6 +23,10 @@ class AgendasController < ApplicationController
 
   def destroy
     @agenda.destroy
+    @working_team.members.each do |member|
+        AgendaMailer.agenda_mail(member.email, @agenda).deliver
+    end
+
     redirect_to root_path
   end
 

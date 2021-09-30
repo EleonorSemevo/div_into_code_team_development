@@ -1,0 +1,6 @@
+<h1>Agenda <%= @agenda.title %> deleted by his author <%= @agenda.user.email%></h1>
+<p>Thoses articles associted are also deleted</p>
+<% @agenda.articles do |article| %>
+  <span><%= article.title%></span>
+<% end %>
+<p>You recivied this article because you are part of the team <%= @agenda.team.name %></p>
